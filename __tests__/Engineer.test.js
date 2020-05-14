@@ -8,3 +8,12 @@ test("gets engineer's info", () => {
   expect(engineer.email).toEqual(expect.any(String));
   expect(engineer.github).toEqual(expect.any(String));
 });
+
+test("get engineer's info methods", () => {
+  const engineer = new Engineer('Dan Lyons', 'abc','dan@yahoo.com', 'dancl6');
+  expect(engineer.getName()).toEqual(expect.stringContaining(engineer.name.toString()));   
+  expect(engineer.getId()).toEqual(expect.stringContaining(engineer.id.toString()));
+  expect(engineer.getEmail()).toEqual(expect.stringContaining(engineer.email.toString()));
+  expect(engineer.getGithub()).toEqual(expect.stringContaining(engineer.github.toString()));
+  expect(engineer.getRole()).toEqual("Engineer");
+})
