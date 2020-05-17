@@ -5,23 +5,21 @@ const Intern = require('../lib/Intern.js')
 var htmlString = "";
 var numKeys
 const { writeFile} = require('../generate-site.js');
-// create the team
-// const generateTeam = team => {
 
 
-  // create the manager html
+
+  // create team html blocks
   const generateManager = teamArray => {
-    console.log("team array is :");
-    console.log(teamArray)
 
-   
-    numKeys = Object.keys(teamArray).length;
- 
+    numKeys = Object.keys(teamArray).length; 
     console.log("manager name is : "+ teamArray[0].manager);
+    // for loop to go through all data in teamArray object
     for (var i = 0 ; i<numKeys; i++){
+
+    // generate manager html block
     if(Object.keys(teamArray[i]).includes("manager") ){
 
-    // return `
+    
     var string = `
     <div class="shadow col-md-6 card" style="width: 18rem;">
     <div class="card-body p-3 mb-2 bg-primary text-white">
@@ -40,10 +38,10 @@ htmlString = htmlString.concat(string);
 console.log("html string is : " + htmlString);
   }
 
-  
+    // generate egineer html block
     if(Object.keys(teamArray[i]).includes("engineer") ){
 
-    // return `
+    
     var string = `
     <div class="shadow col-md-6 card" style="width: 18rem;">
     <div class="card-body p-3 mb-2 bg-primary text-white">
@@ -61,10 +59,9 @@ console.log("html string is : " + htmlString);
 htmlString = htmlString.concat(string);
 console.log("html string is : " + htmlString);
   }
-  
+    // generate intern html block
     if(Object.keys(teamArray[i]).includes("intern") ){
 
-    // return `
     var string = `
     <div class="shadow col-md-6 card" style="width: 18rem;">
     <div class="card-body p-3 mb-2 bg-primary text-white">
@@ -83,8 +80,6 @@ htmlString = htmlString.concat(string);
 console.log("html string is : " + htmlString);
   }
 
-
-
 }
 }
 
@@ -94,7 +89,7 @@ module.exports = templateData => {
   teamArray = templateData;
   generateManager(teamArray);
   var string2 =  `
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>

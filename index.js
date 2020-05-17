@@ -6,16 +6,10 @@ const Manager = require('./lib/Manager.js')
 const Engineer = require('./lib/Engineer.js')
 const Intern = require('./lib/Intern.js')
 const generatePage = require('./src/page-template.js');
-const profileData = [];
-const profileData2 = [];
-const profileData3 = [];
-const profileData4 = [];
-var i = 1;
-var flag;
 var teamArray = [];
-const { writeFile} = require('./generate-site.js');
 
 
+// prompts for manager info
 const promptManager = profileData => {
 
 	return inquirer.prompt([
@@ -70,7 +64,7 @@ const promptManager = profileData => {
 }
 
 
-
+// prompts to add intern, add engineer or finish
 const promptChoice = profileData2 => {
 
 	return inquirer.prompt([
@@ -95,7 +89,7 @@ if(answers.build ==='Add an engineer') {
 }
 
 
-
+// prompts for engineer info
 const promptEngineer = profileData3 => {
 
 	return inquirer.prompt([
@@ -145,7 +139,7 @@ const promptEngineer = profileData3 => {
 }
 
 
-
+// prompts for intern info
   const promptIntern = profileData4 => {
   
     return inquirer.prompt([
@@ -205,93 +199,10 @@ const promptEngineer = profileData3 => {
 
 
 
-// promptManager(profileData)
-// .then(profileData => {
-//   var managerData = new Manager();
-//   managerData = profileData;
-  
-// })
-  
 
-var buildAfterManager = function () {
-
-  i=i+1;
-promptChoice(profileData2)
-.then(profileData2 => {
- 
-  var choice = profileData2.build;
-  console.log("choice is : " + choice);
-  // if (choice === 'Add an engineer') {
-  //   promptEngineer(profileData3 => {
-
-  //   }
-  //     )
-  // }
-})
-
-
-// buildAfterManager();
-}
-
-
+// call function for prompts for manager
 promptManager();
 
 
 
 
-// var code = function () {
-
-//   prompt(flag);
-// }
-
-
-// if (i===1) {
-// flag = manager;
-// } else {
-// flag = choice;
-// }
-
-// }
-
-
-// code();
-
-
-//   promptManager(profileData)}
-//   .then(profileData => {
-//     var managerData = new Manager();
-//     managerData = profileData;
-// } else {
-//    buildAfterManager}
-
-
-
-//   promptChoice(portfolioData2)
-// console.log("build is : " + build);
-
-
-
-
-
-
-// promptManager(portfolioData)
-// .then(portfolioData => {
-//   var managerData  = new Manager();
-//   managerData = portfolioData;
-//   console.log("id of manager is :" + managerData.managerId)
-//   console.log("portfolio data is :");
-//   console.log(portfolioData);
-//   return generatePage(managerData);
-
-// }).then (promptEngineer)
-// .then(portfolioData2 => {
-// var engineerData = new engineerData();
-// engineerData = portfolioData2;
-// })
-// .then(pageHTML => {
-//   return writeFile(pageHTML);
-// })
-
-// .catch(err => {
-//   console.log(err);
-// });

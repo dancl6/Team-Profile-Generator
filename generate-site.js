@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 
-//  function to write file
+//  function to write html file
 const writeFile = fileContent => {
   return new Promise((resolve, reject) => {
     fs.writeFile('./dist/index.html', fileContent, err => {
@@ -19,6 +19,8 @@ const writeFile = fileContent => {
       });
     });
   });
+
+
 };
 
 
