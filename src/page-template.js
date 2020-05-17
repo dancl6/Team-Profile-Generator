@@ -83,9 +83,9 @@ console.log("html string is : " + htmlString);
 }
 }
 
-
+// generate full index.html file
 module.exports = templateData => {
-  // var managerData  = new Manager();
+
   teamArray = templateData;
   generateManager(teamArray);
   var string2 =  `
@@ -119,10 +119,8 @@ ${htmlString}
   </body>
   </html>
   `;
+  // write index.html file
   writeFile(string2);
-  // module.exports = generatePage;
+ 
 };
 
-// pageHTML => {
-
-// }

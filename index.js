@@ -77,7 +77,7 @@ const promptChoice = profileData2 => {
 ]).then(answers =>{
   console.log("answers is : " + answers.build);
 if(answers.build ==='Add an engineer') {
-  console.log("answers is : " + answers);
+  
   promptEngineer()
 } else if (answers.build === 'Add an intern') {
   promptIntern()
@@ -183,13 +183,8 @@ const promptEngineer = profileData3 => {
     var internInfo = new Intern;
     internInfo = answers;
     teamArray.push(internInfo);
-    console.log(Object.keys(teamArray[1]));
-    if(Object.keys(teamArray[1]).includes("engineer") ){
-      console.log("Success!");
-    }
-    var numKeys = Object.keys(teamArray).length;
-    console.log("num keys is : " + numKeys);
-
+  
+ 
     promptChoice();
     
   })
