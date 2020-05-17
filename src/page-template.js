@@ -30,7 +30,7 @@ const { writeFile} = require('../generate-site.js');
     </div>
     <ul class="list-group  p-3  bg-light text-dark">
       <li class="list-group-item">ID: ${teamArray[i].managerId}</li>
-      <li class="list-group-item">Email: ${teamArray[i].managerEmail}</li>
+      <a class="list-group-item" href = "mailto: ${teamArray[i].managerEmail}">Email: ${teamArray[i].managerEmail}</a>
       <li class="list-group-item">Office number: ${teamArray[i].managerNumber}</li>
     </ul>
   </div>
@@ -48,12 +48,12 @@ console.log("html string is : " + htmlString);
     <div class="shadow col-md-6 card" style="width: 18rem;">
     <div class="card-body p-3 mb-2 bg-primary text-white">
       <h5 class="card-title ">${teamArray[i].engineer}</h5>
-      <h5 class="card-text">Engineer</h5>
+      <h5 class="card-text">📚Engineer</h5>
     </div>
     <ul class="list-group  p-3  bg-light text-dark">
       <li class="list-group-item">ID: ${teamArray[i].engineerId}</li>
-      <li class="list-group-item">Email: ${teamArray[i].engineerEmail}</li>
-      <li class="list-group-item">GitHub: ${teamArray[i].engineerGithub}</li>
+      <a class="list-group-item" href = "mailto: ${teamArray[i].engineerEmail}">Email: ${teamArray[i].engineerEmail}</a>
+      <a class="list-group-item" href = "https://www.github.com/${teamArray[i].engineerGithub}" >GitHub: ${teamArray[i].engineerGithub}</a>
     </ul>
   </div>
 
@@ -69,11 +69,11 @@ console.log("html string is : " + htmlString);
     <div class="shadow col-md-6 card" style="width: 18rem;">
     <div class="card-body p-3 mb-2 bg-primary text-white">
       <h5 class="card-title ">${teamArray[i].intern}</h5>
-      <h5 class="card-text">Intern</h5>
+      <h5 class="card-text">👨‍🎓Intern</h5>
     </div>
     <ul class="list-group  p-3  bg-light text-dark">
       <li class="list-group-item">ID: ${teamArray[i].internId}</li>
-      <li class="list-group-item">Email: ${teamArray[i].internEmail}</li>
+      <a class="list-group-item" href = "mailto: ${teamArray[i].internEmail}">Email: ${teamArray[i].internEmail}</a>
       <li class="list-group-item">School: ${teamArray[i].internSchool}</li>
     </ul>
   </div>
