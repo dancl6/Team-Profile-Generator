@@ -3,6 +3,8 @@ const inquirer = require('inquirer');
 // use node.js file structure module
 const fs = require('fs');
 const Manager = require('./lib/Manager.js')
+const Engineer = require('./lib/Engineer.js')
+const Intern = require('./lib/Intern.js')
 const generatePage = require('./src/page-template.js');
 const profileData = [];
 const profileData2 = [];
@@ -10,6 +12,7 @@ const profileData3 = [];
 const profileData4 = [];
 var i = 1;
 var flag;
+var teamArray = [];
 const { writeFile} = require('./generate-site.js');
 
 
@@ -54,6 +57,10 @@ const promptManager = profileData => {
 },
 ]).then(answers => {
 
+  var managerInfo = new Manager;
+  managerInfo = answers;
+  teamArray.push(managerInfo);
+
   promptChoice();
 
 
@@ -80,6 +87,8 @@ if(answers.build ==='Add an engineer') {
   promptEngineer()
 } else if (answers.build === 'Add an intern') {
   promptIntern()
+} else {
+  return generatePage(teamArray);
 }
 
 })
@@ -127,6 +136,9 @@ const promptEngineer = profileData3 => {
 	message: "What is the engineer's github account?",
 },
 ]).then(answers => {
+  var engineerInfo = new Engineer;
+  engineerInfo = answers;
+  teamArray.push(engineerInfo);
   promptChoice();
 })
 
@@ -174,7 +186,18 @@ const promptEngineer = profileData3 => {
     message: "What is the intern's school?",
   },
   ]).then(answers => {
+    var internInfo = new Intern;
+    internInfo = answers;
+    teamArray.push(internInfo);
+    console.log(Object.keys(teamArray[1]));
+    if(Object.keys(teamArray[1]).includes("engineer") ){
+      console.log("Success!");
+    }
+    var numKeys = Object.keys(teamArray).length;
+    console.log("num keys is : " + numKeys);
+
     promptChoice();
+    
   })
   
   }
@@ -212,6 +235,9 @@ promptChoice(profileData2)
 
 
 promptManager();
+
+
+
 
 // var code = function () {
 
