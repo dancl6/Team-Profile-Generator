@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "inquirer": "^7.1.0",
-    "underscore": "^1.10.2"
+    "underscore": "^1.12.1"
   }
 }
